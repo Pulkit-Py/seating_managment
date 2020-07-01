@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin</title>
+  <link rel="stylesheet" type="text/css" href="/static/homee.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <!-----------------------------------------NAVIGATION BARS--------------------------->
+  <div class="topnav">
+  <a class="active" href="/admin">Dashboard</a>
+  <a  href="/addroom">Add Room</a>
+  <a href="/Generate">Generate</a>
+  <a  href="/result">Show Result</a>
+  <a href="/login">Logout</a>
+</div>
+<div>
+  <h2>No Of Room Generate</h2>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr >
+        <th style="text-align: center;">Room No</th>
+        <th style="text-align: center;">Coloum</th>
+        <th style="text-align: center;">Row</th>
+        <th style="text-align: center;">Total Seat</th>
+        <th style="text-align: center;">Delete</th>
+        <th style="text-align: center;">Edit</th>
+      </tr>
+    </thead>
+{% for row in data %}
+<tr>
+    {% for d in row %}
+    <td style="text-align: center;" >{{d}}</td>
+    {% endfor %}
+    <td style="text-align: center;"><a href="/delete/{{row[0]}}">DELETE</a></td>
+    <td style="text-align: center;"><a href="/edit/{{row[0]}}">EDIT</a></td>
+</tr>
+{% endfor %}
+
+</table>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        responsive: true,
+        "pageLength": 5
+    } );
+} );
+	</script>
+</div>
+</body>
+</html>

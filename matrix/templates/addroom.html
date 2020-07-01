@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Add Room</title>
+	<link rel="stylesheet" type="text/css" href="homee.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=number], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+  <!-----------------------------------------NAVIGATION BARS--------------------------->
+  <div class="topnav">
+  <a  href="/admin">Dashboard</a>
+  <a  class="active" href="/addroom">Add Room</a>
+  <a href="/Generate">Generate</a>
+  <a  href="/result">Show Result</a>
+  <a href="/login">Logout</a>
+</div>
+<div class="container">
+  <h2>Add Room</h2>
+  <form action="" method="POST">
+    {% if error %}
+    <pre>{{error}}</pre>
+    {% endif %}
+    <label for="fname">Enter Room No.</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="number" id="fname" name="room_no" placeholder="Enter Room No." value="{{room}}"><br>
+
+    <label for="quantity">No. of Row:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="row" min="0" max="15" step="1" value="{{row}}"><br>
+
+    <label for="quantity">No. of Colunm:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="col" min="0" max="15" step="1" value="{{col}}"><br>
+
+     <label for="quantity">Total No. of Seat:</label>
+  <input type="number" id="quantity" name="seat" min="0" max="225" step="1" value="{{seat}}"><br>
+  <input type="submit" value="Submit">
+  </form>
+  
+</div>  
+</body>
+</html>

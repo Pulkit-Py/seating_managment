@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SHOW RESULT</title>
+	<link rel="stylesheet" type="text/css" href="homee.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=number], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+button{
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+button:hover{
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dataframe{
+  width: 752px;
+   height: 408px;
+    background-color:white;
+    border-color: black;
+    margin-left: auto; 
+    margin-right: auto; 
+    border:2px;
+    text-align: center;
+}
+
+
+
+</style>
+</head>
+<body>
+  <!----NAVIGATION BARS----->
+  <div class="topnav">
+  <a  href="/admin">Dashboard</a>
+  <a  href="/addroom">Add Room</a>
+  <a  href="/Generate">Generate</a>
+  <a class="active" href="/result">Show Result</a>
+  <a href="/login">Logout</a>
+</div>
+<div class="container">
+  <form action="" method="POST">
+  <label>Select Room</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select id="browser" name="room">
+    {% for row in room_no %}
+    {%for no in row %}
+    <option value={{no}}>{{no}}</option>
+    {% endfor %}
+    {% endfor %}
+    <input type="submit" value="SHOW">
+    {% if data %}
+    <button class="button"><a style="text-decoration:none;" href={{filename}} download>Download Excel Sheet</a></button>
+    {% endif %}
+  </select>
+  </form>
+</div>
+<div class="container">
+  {{data | safe}}
+</div>
+</body>
+</html>
+
+
+</table>
+</body>
+</html>

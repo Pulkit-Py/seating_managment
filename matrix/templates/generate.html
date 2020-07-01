@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Generate</title>
+	<link rel="stylesheet" type="text/css" href="homee.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=number], select, textarea {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <!----NAVIGATION BARS----->
+  <div class="topnav">
+  <a  href="/admin">Dashboard</a>
+  <a  href="/addroom">Add Room</a>
+  <a class="active" href="/Generate">Generate</a>
+  <a  href="/result">Show Result</a>
+  <a href="/login">Logout</a>
+</div>
+<div class="container">
+  <form action="" method="POST">
+  <h1>Generate</h1><br>
+  {% if error%}
+  <h4>{{error}}</h4>
+  {%endif%}
+  <label>Select Room</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <select id="browser" name="room">
+    {% for row in room_no %}
+    {%for no in row %}
+    <option value={{no}}>{{no}}</option>
+    {% endfor %}
+    {% endfor %}
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <br><label><strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;START FROM &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;END TO</strong></label>
+  <!---ROLLNOOFIT--->
+    <br><label for="quantity">Roll No. of IT</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="it_start" min="1000000000" max="90000000000" step="1" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="quantity">To</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="it_end" min="1000000000" max="90000000000" step="1" value="0"><br>
+
+<!----------ROLL NO OF ELECTRONICS-------------->
+
+    <label for="quantity">Roll No. of Electronics</label>
+  <input type="number" id="quantity" name="ec_start" min="1000000000" max="90000000000" step="1" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="quantity">To</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="ec_end" min="1000000000" max="90000000000" step="1" value="0"><br>
+
+<!----------ROLL NO ELECTRICAL------------------------>
+
+ <label for="quantity">Roll No. of Electrical</label>&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="el_start" min="1000000000" max="90000000000" step="1" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="quantity">To</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="quantity" name="el_end" min="1000000000" max="90000000000" step="1" value="0"><br>
+
+<!-----------------------------------MISSING ROLL NO ----------------------------------------------------------->
+
+<label for="quantity">Missing Roll No.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" id="quantity" name="missing" step="1" value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    
+
+  <input type="submit" value="Submit">
+  </form>
+</div> 
+
+</body>
+</html>
